@@ -1,57 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Basic Meta Tags -->
-  <title>Intranova Trade & Training - Excellence in Trade, Logistics & Training</title>
-  <meta name="description" content="Intranova Trade & Training offers expert trading, logistics, and professional training services to optimize your business operations and drive growth." />
-  <meta name="keywords" content="Intranova, trade services, logistics, business training, supply chain, strategic sourcing, import export, professional training programs" />
-  <meta name="author" content="Intranova Trade & Training" />
-  <meta name="robots" content="index, follow" />
+    <!-- Basic Meta Tags -->
+    <title>
+      Intranova Trade & Training - Excellence in Trade, Logistics & Training
+    </title>
+    <meta
+      name="description"
+      content="Intranova Trade & Training offers expert trading, logistics, and professional training services to optimize your business operations and drive growth."
+    />
+    <meta
+      name="keywords"
+      content="Intranova, trade services, logistics, business training, supply chain, strategic sourcing, import export, professional training programs"
+    />
+    <meta name="author" content="Intranova Trade & Training" />
+    <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:title" content="Intranova Trade & Training" />
-  <meta property="og:description" content="Excellence in trade, logistics, and training. Partner with Intranova to elevate your business operations." />
-  <meta property="og:image" content="https://intranova.in/logo.png" /> <!-- Make sure this image exists -->
-  <meta property="og:url" content="https://intranova.in" />
-  <meta property="og:type" content="website" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Intranova Trade & Training" />
+    <meta
+      property="og:description"
+      content="Excellence in trade, logistics, and training. Partner with Intranova to elevate your business operations."
+    />
+    <meta property="og:image" content="https://intranova.in/logo.png" />
+    <!-- Make sure this image exists -->
+    <meta property="og:url" content="https://intranova.in" />
+    <meta property="og:type" content="website" />
 
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Intranova Trade & Training" />
-  <meta name="twitter:description" content="Trade, Logistics & Training solutions tailored for your business growth." />
-  <meta name="twitter:image" content="https://intranova.in/logo.png" />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Intranova Trade & Training" />
+    <meta
+      name="twitter:description"
+      content="Trade, Logistics & Training solutions tailored for your business growth."
+    />
+    <meta name="twitter:image" content="https://intranova.in/logo.png" />
 
-  <!-- Favicon & Manifest -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+    <!-- Favicon & Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://intranova.in" />
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://intranova.in" />
 
-  <!-- Schema.org JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Intranova Trade & Training",
-    "url": "https://intranova.in",
-    "logo": "https://intranova.in/logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-8433591354",
-      "contactType": "Customer Service",
-      "areaServed": "IN",
-      "availableLanguage": "English"
-    },
-    "sameAs": []
-  }
-  </script>
-  <style>
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Intranova Trade & Training",
+        "url": "https://intranova.in",
+        "logo": "https://intranova.in/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-8433591354",
+          "contactType": "Customer Service",
+          "areaServed": "IN",
+          "availableLanguage": "English"
+        },
+        "sameAs": []
+      }
+    </script>
+    <style>
       * {
         margin: 0;
         padding: 0;
@@ -886,9 +901,67 @@
       .mobile-dropdown a:last-child {
         border-bottom: none;
       }
-    </style>
-</head>
 
+      /* Contact Info Responsiveness */
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .contact-items {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .contact-item {
+        flex: 1 1 300px; /* allow flexible sizing */
+      }
+
+      /* Tablet and up: side-by-side items */
+      @media (min-width: 768px) {
+        .contact-items {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 2rem;
+        }
+
+        .contact-item {
+          flex: 1 1 calc(50% - 2rem); /* two per row */
+          max-width: 400px;
+        }
+      }
+
+      /* Desktop: evenly spaced items */
+      @media (min-width: 1024px) {
+        .contact-items {
+          justify-content: space-between;
+        }
+
+        .contact-item {
+          flex: 1 1 calc(33% - 2rem); /* three per row */
+          max-width: none;
+        }
+      }
+
+      /* Mobile stacking */
+      @media (max-width: 480px) {
+        .contact-item {
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+          padding: 1rem;
+        }
+
+        .contact-icon {
+          margin-right: 0;
+          margin-bottom: 0.8rem;
+        }
+      }
+      
+    </style>
+  </head>
 
   <body>
     <header>
@@ -1005,6 +1078,14 @@
                 international trade, and business operations, fostering
                 continuous improvement and peak performance across your
                 organization.
+              </p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🎨</div>
+              <h3>Paint & Chemicals</h3>
+              <p>
+                Expert solutions for industrial coatings, paints, and chemical
+                applications.
               </p>
             </div>
           </div>
@@ -1303,31 +1384,31 @@
       //     navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
       // });
 
-      // Animate stats on scroll
+      // Animate each stat independently
       const observerOptions = {
         threshold: 0.5,
         rootMargin: "0px 0px -50px 0px",
       };
 
-      const observer = new IntersectionObserver(function (entries) {
+      const observer = new IntersectionObserver(function (entries, observer) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const statNumbers = entry.target.querySelectorAll(".stat-number");
-            statNumbers.forEach((stat) => {
-              const finalValue = stat.textContent;
-              const numericValue = parseInt(finalValue);
-              if (!isNaN(numericValue)) {
-                animateCounter(stat, numericValue, finalValue);
-              }
-            });
+            const stat = entry.target;
+            const finalValue = stat.textContent;
+            const numericValue = parseInt(finalValue);
+            if (!isNaN(numericValue)) {
+              animateCounter(stat, numericValue, finalValue);
+            }
+
+            // ✅ Stop observing this stat after first animation
+            observer.unobserve(stat);
           }
         });
       }, observerOptions);
 
-      const statsSection = document.querySelector(".stats");
-      if (statsSection) {
-        observer.observe(statsSection);
-      }
+      // Observe every stat-number individually
+      const statNumbers = document.querySelectorAll(".stat-number");
+      statNumbers.forEach((stat) => observer.observe(stat));
 
       function animateCounter(element, target, originalText) {
         const isPercentage = originalText.includes("%");
