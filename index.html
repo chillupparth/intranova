@@ -370,20 +370,26 @@
 
       .services-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-        gap: 2.5rem;
-        margin-top: 5rem;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(480px, 1fr)
+        ); /* responsive: 2 on desktop, 1 on mobile */
+        gap: 2rem 2.5rem; /* row gap + column gap */
+        margin-top: 4rem;
+        align-items: stretch; /* equal card heights per row */
       }
 
       .service-card {
-        background: white;
-        padding: 3rem;
-        border-radius: 20px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        border: 1px solid #e2e8f0;
-        position: relative;
-        overflow: hidden;
+        background: #fff;
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
       }
 
       .service-card::before {
@@ -397,22 +403,21 @@
       }
 
       .service-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        transform: translateY(-5px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
       }
 
       .service-icon {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
-        border-radius: 20px;
+        width: 65px;
+        height: 65px;
+        margin: 0 auto 1.5rem;
+        border-radius: 50%;
+        background: #007bff; /* Adjust to brand color */
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 2rem;
-        font-size: 2.5rem;
-        color: white;
-        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        font-size: 2rem;
+        color: #fff;
       }
 
       .service-card h3 {
@@ -837,6 +842,21 @@
         animation-delay: 0.2s;
       }
 
+      .learn-more-btn {
+        display: inline-block;
+        padding: 8px 16px;
+        margin-top: 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+      }
+
+      .learn-more-btn:hover {
+        background-color: #0056b3;
+      }
+
       /* Scroll to top button */
       .scroll-top {
         position: fixed;
@@ -959,7 +979,17 @@
           margin-bottom: 0.8rem;
         }
       }
-      
+
+      @media (max-width: 480px) {
+        .services-grid {
+          gap: 1.5rem;
+        }
+
+        .service-card {
+          padding: 2rem;
+          margin: 0; /* grid handles spacing */
+        }
+      }
     </style>
   </head>
 
@@ -1049,45 +1079,42 @@
           </p>
           <div class="services-grid">
             <div class="service-card">
-              <div class="service-icon">🌐</div>
-              <h3>Strategic Trading Expertise</h3>
-              <p>
-                Unlock profitable ventures and establish global connections
-                through our comprehensive trading services. From strategic
-                sourcing to efficient distribution, we enhance your commercial
-                efficiency and expand your market reach with data-driven
-                insights and industry expertise.
-              </p>
-            </div>
-            <div class="service-card">
               <div class="service-icon">🚚</div>
               <h3>Reliable Logistics Services</h3>
               <p>
-                Ensure seamless flow of your goods with our end-to-end logistics
-                solutions. Our dedicated team guarantees precision, timeliness,
-                and security for all your supply chain needs, from warehousing
-                and inventory management to last-mile delivery and tracking.
+                Seamless supply chain solutions including warehousing,
+                transport, and delivery—on time, every time.
               </p>
-            </div>
-            <div class="service-card">
-              <div class="service-icon">🎓</div>
-              <h3>Specialized Professional Training</h3>
-              <p>
-                Empower your workforce with cutting-edge knowledge and practical
-                skills. Our tailored training programs cover logistics,
-                international trade, and business operations, fostering
-                continuous improvement and peak performance across your
-                organization.
-              </p>
+              <a href="logistics.html" class="learn-more-btn">Learn More</a>
             </div>
             <div class="service-card">
               <div class="service-icon">🎨</div>
               <h3>Paint & Chemicals</h3>
               <p>
-                Expert solutions for industrial coatings, paints, and chemical
-                applications.
+                Durable paint and chemical solutions designed for long-lasting
+                protection and industrial performance
               </p>
+              <a href="paint.html" class="learn-more-btn">Learn More</a>
             </div>
+            <div class="service-card">
+              <div class="service-icon">🌐</div>
+              <h3>Strategic Trading Expertise</h3>
+              <p>
+                Unlock global markets with smart sourcing, distribution, and
+                trade solutions tailored to grow your business.
+              </p>
+              <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🎓</div>
+              <h3>Specialized Professional Training</h3>
+              <p>
+                Practical training programs in trade, logistics, and business
+                skills to empower your workforce.
+              </p>
+              <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+            
           </div>
         </div>
       </section>
@@ -1155,24 +1182,6 @@
           <div class="testimonials-grid">
             <div class="testimonial-card">
               <div class="testimonial-text">
-                "Intranova transformed our supply chain operations completely.
-                Their logistics expertise helped us reduce costs by 30% while
-                improving delivery times significantly."
-              </div>
-              <div class="testimonial-author">Sambhaji Salunke</div>
-              <div class="testimonial-company">Kesaree Traders</div>
-            </div>
-            <div class="testimonial-card">
-              <div class="testimonial-text">
-                "The training programs provided by Intranova elevated our team's
-                capabilities tremendously. The practical approach and industry
-                insights were invaluable for our growth."
-              </div>
-              <div class="testimonial-author">Aditya Bandarkar</div>
-              <div class="testimonial-company">Phoneix Services</div>
-            </div>
-            <div class="testimonial-card">
-              <div class="testimonial-text">
                 "Their strategic trading expertise opened new markets for us
                 globally. The ROI on our partnership with Intranova exceeded all
                 expectations within the first year."
@@ -1207,7 +1216,7 @@
                   <div class="contact-icon">📞</div>
                   <div>
                     <h4>Phone Number</h4>
-                    <p>+91 84335 91354</p>
+                    <p>+91 84335 91354 / 84220 18092</p>
                   </div>
                 </div>
 
@@ -1321,14 +1330,13 @@
         <div class="footer-section">
           <h4>Contact Information</h4>
           <p>Email: intranovatrade@gmail.com</p>
-          <p>Phone: +91 84335 91354</p>
+          <p>Phone: +91 84335 91354 / 84220 18092</p>
           <p>Available 24/7 for urgent inquiries</p>
         </div>
       </div>
       <div class="footer-bottom">
         <p>
-          &copy; 2024 Intranova Trading & Training. All rights reserved. |
-          Excellence in Trade, Logistics & Training
+          &copy; 2024 Intranova Trading & Training.
         </p>
       </div>
     </footer>
