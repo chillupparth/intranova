@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paint & Chemicals - Intranova Trade & Training</title>
+    <meta
+      name="description"
+      content="Leading manufacturer, supplier, and exporter of decorative paints, industrial coatings, and construction chemicals based in Mumbai, India."
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+
+      /* Header Styles */
+      header {
+        background: rgba(30, 58, 138, 0.95);
+        backdrop-filter: blur(20px);
+        color: white;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .logo-image {
+        width: 50px;
+        height: 50px;
+        background: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo-text {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+        letter-spacing: 1px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #60a5fa;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-links a:hover {
+        color: #60a5fa;
+      }
+
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .mobile-menu span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 3px 0;
+        transition: 0.3s;
+      }
+
+      /* Mobile dropdown menu */
+      .mobile-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        display: none;
+        flex-direction: column;
+        z-index: 1000;
+      }
+
+      .mobile-dropdown.active {
+        display: flex;
+      }
+
+      .mobile-dropdown a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .mobile-dropdown a:hover {
+        background: linear-gradient(135deg, #7caeff 0%, #3157bf 100%);
+        color: #ffffff;
+      }
+
+      .mobile-dropdown a:last-child {
+        border-bottom: none;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          #1e3a8a 0%,
+          #3b82f6 50%,
+          #60a5fa 100%
+        );
+        color: white;
+        padding: 140px 0 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path d="M0,100 C150,200 350,0 500,100 C650,200 850,0 1000,100 L1000,200 L0,200 Z" fill="rgba(255,255,255,0.1)"/></svg>')
+          no-repeat center bottom;
+        background-size: cover;
+      }
+
+      .hero-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-icon {
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        font-size: 2rem;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        font-weight: 800;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #1e3a8a;
+        position: relative;
+        font-weight: 700;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #64748b;
+        margin-bottom: 4rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        border-radius: 2px;
+      }
+
+      /* About Section Grid */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+        margin-top: 3rem;
+      }
+
+      .about-text h2 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        color: #1e3a8a;
+        font-weight: 700;
+      }
+
+      .about-text p {
+        font-size: 1.2rem;
+        color: #64748b;
+        margin-bottom: 2rem;
+        line-height: 1.8;
+      }
+
+      .about-list {
+        margin: 2rem 0;
+      }
+
+      .about-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem 0;
+      }
+
+      .about-image {
+        width: 100%;
+        height: 400px;
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: #64748b;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Feature Cards */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 4rem;
+      }
+
+      .feature-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .feature-icon {
+        width: 65px;
+        height: 65px;
+        margin: 0 auto 1.5rem;
+        border-radius: 15px;
+        background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+      }
+
+      .feature-card h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        color: #1e3a8a;
+        font-weight: 600;
+      }
+
+      .feature-card p {
+        color: #64748b;
+        line-height: 1.8;
+        font-size: 1.05rem;
+      }
+
+      /* Product Cards */
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin-top: 4rem;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .product-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .product-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: white;
+      }
+
+      .product-title {
+        font-size: 1.4rem;
+        color: #1e3a8a;
+        font-weight: 600;
+      }
+
+      .product-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .product-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .check-icon {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        flex-shrink: 0;
+        font-size: 0.8rem;
+      }
+
+      /* Services List */
+      .services-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .service-item {
+        background: white;
+        border-radius: 15px;
+        padding: 1.5rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+      }
+
+      .service-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu {
+          display: flex;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .services-list {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .about-text h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav>
+        <div class="logo-container">
+          <div class="logo-image">
+            <img
+              style="width: 40px; height: 25px"
+              src="/logo.png"
+              alt="Company Logo"
+            />
+          </div>
+          <a href="index.html" class="logo-text">INTRANOVA</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobileMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="mobile-dropdown" id="mobileDropdown">
+          <a href="index.html">Home</a>
+          <a href="index.html#services">Services</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-icon">🎨</div>
+        <h1>ITT Paints & Chemicals</h1>
+        <p>
+          Leading manufacturer, supplier, and exporter of decorative paints,
+          industrial coatings, and construction chemicals based in Mumbai,
+          India.
+        </p>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" style="background: white">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <h2>About ITT Paints & Chemicals</h2>
+            <p>
+              Intranova Trade and Training (ITT) Paints & Chemicals is a leading
+              manufacturer, supplier, and exporter of decorative paints,
+              industrial coatings, and construction chemicals in India,
+              headquartered in Mumbai.
+            </p>
+            <div class="about-list">
+              <div class="about-item">
+                <div class="check-icon">✓</div>
+                <span
+                  >Quality products developed by experienced professionals</span
+                >
+              </div>
+              <div class="about-item">
+                <div class="check-icon">✓</div>
+                <span>Commitment to environment-friendly processes</span>
+              </div>
+              <div class="about-item">
+                <div class="check-icon">✓</div>
+                <span>Competitive pricing with timely delivery</span>
+              </div>
+              <div class="about-item">
+                <div class="check-icon">✓</div>
+                <span>Continuous process enhancement</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">🏭</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Why Choose Our Products?</h2>
+        <p class="section-subtitle">
+          Superior quality, innovative formulations, and comprehensive support
+          make us your ideal chemical partner.
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🧪</div>
+            <h3>Quality Products</h3>
+            <p>
+              Products developed by experienced professionals with stringent
+              quality control.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Well-Equipped Infrastructure</h3>
+            <p>
+              Segmented manufacturing, quality-control, R&D, packing, and
+              warehousing facilities.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🏆</div>
+            <h3>Environmental Commitment</h3>
+            <p>
+              Environment-friendly processes with competitive pricing and timely
+              delivery.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">♻️</div>
+            <h3>Quality Assurance</h3>
+            <p>
+              Internal labs and continuous process enhancement for consistent
+              quality.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Technical Support</h3>
+            <p>
+              Comprehensive technical guidance and third-party inspection
+              assistance.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Export Services</h3>
+            <p>
+              Complete export and supply chain services with consultancy
+              support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Portfolio Section -->
+    <section class="section" style="background: white">
+      <div class="container">
+        <h2 class="section-title">Product Portfolio</h2>
+        <p class="section-subtitle">
+          Comprehensive range of industrial coatings, decorative paints, and
+          construction chemicals.
+        </p>
+
+        <div class="product-grid">
+          <!-- Industrial Coatings -->
+          <div class="product-card">
+            <div class="product-header">
+              <div class="product-icon">🧪</div>
+              <h3 class="product-title">Industrial Coatings</h3>
+            </div>
+            <div class="product-list">
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Epoxy Primer</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Epoxy Zinc Rich Primer</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Polyurethane (Finish & Top Coat)</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Anti-Corrosion Coating</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Tank Lining</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Chemical Resistant Coating</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Anti-Carbonation Coating</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Aluminium Paints</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Food Grade Coating</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Heat Resistance Coating</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Fire Retardant Paint</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Floor Coatings</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decorative & Wood -->
+          <div class="product-card">
+            <div class="product-header">
+              <div class="product-icon">🎨</div>
+              <h3 class="product-title">Decorative & Wood</h3>
+            </div>
+            <div class="product-list">
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span
+                  >Water Based Acrylic Emulsion Paints (Interior &
+                  Exterior)</span
+                >
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Wood Coating</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Decorative Synthetic Enamels</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Construction Chemicals -->
+          <div class="product-card">
+            <div class="product-header">
+              <div class="product-icon">🛡️</div>
+              <h3 class="product-title">Construction Chemicals</h3>
+            </div>
+            <div class="product-list">
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Waterproofing</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Coatings for Hospitals</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Admixture</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Epoxy Grouting</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Rust Convertor</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Rust Inhibitor</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Other Products -->
+          <div class="product-card">
+            <div class="product-header">
+              <div class="product-icon">⚡</div>
+              <h3 class="product-title">Other Products</h3>
+            </div>
+            <div class="product-list">
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Pretreatment Chemicals</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Powder Coatings</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Paint Remover</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>NC Thinner</span>
+              </div>
+              <div class="product-item">
+                <div class="check-icon">✓</div>
+                <span>Turpentine Epoxy PU Thinner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services & Support Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Services & Support</h2>
+        <p class="section-subtitle">
+          Comprehensive technical support and consultancy services to ensure
+          optimal product performance.
+        </p>
+
+        <div class="services-list">
+          <div class="service-item">
+            <div class="service-content">
+              <div class="check-icon">✓</div>
+              <span>Quality Assurance Services</span>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <div class="service-content">
+              <div class="check-icon">✓</div>
+              <span
+                >Technical support and third-party inspection assistance</span
+              >
+            </div>
+          </div>
+
+          <div class="service-item">
+            <div class="service-content">
+              <div class="check-icon">✓</div>
+              <span>NACE-I, II pre-examination preparation</span>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <div class="service-content">
+              <div class="check-icon">✓</div>
+              <span>Export & Supply Chain Services</span>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <div class="service-content">
+              <div class="check-icon">✓</div>
+              <span
+                >Paints, Coatings, and Construction Chemicals Consultancy</span
+              >
+            </div>
+          </div>
+
+          <div class="service-item">
+            <div class="service-content">
+              <div class="check-icon">✓</div>
+              <span
+                >Technical Guidance (surface preparation, primer
+                recommendations, application techniques, substrate compatibility
+                best practices)</span
+              >
+            </div>
+          </div>
+
+          <div class="service-item">
+            <div class="service-content">
+              <div class="check-icon">✓</div>
+              <span>Raw materials and finished product testing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Get mobile menu elements
+      const mobileMenu = document.getElementById("mobileMenu");
+      const mobileDropdown = document.getElementById("mobileDropdown");
+
+      // Toggle mobile menu
+      if (mobileMenu && mobileDropdown) {
+        mobileMenu.addEventListener("click", function () {
+          mobileMenu.classList.toggle("active");
+          mobileDropdown.classList.toggle("active");
+        });
+
+        // Close dropdown when clicking on a link
+        const mobileLinks = mobileDropdown.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.remove("active");
+            mobileDropdown.classList.remove("active");
+          });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+          if (
+            !mobileMenu.contains(event.target) &&
+            !mobileDropdown.contains(event.target)
+          ) {
+            mobileMenu.classList.remove("active");
+            mobileDropdown.classList.remove("active");
+          }
+        });
+      }
+
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Header scroll effect
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 100) {
+          header.style.background = "rgba(30, 58, 138, 0.98)";
+        } else {
+          header.style.background = "rgba(30, 58, 138, 0.95)";
+        }
+      });
+    </script>
+  </body>
+</html>

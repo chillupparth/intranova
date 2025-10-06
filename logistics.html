@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logistics Services - Intranova Trade & Training</title>
+    <meta
+      name="description"
+      content="Comprehensive logistics solutions with global presence. Custom clearance, freight forwarding, warehousing, and door-to-door delivery services."
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+
+      /* Header Styles */
+      header {
+        background: rgba(30, 58, 138, 0.95);
+        backdrop-filter: blur(20px);
+        color: white;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .logo-image {
+        width: 50px;
+        height: 50px;
+        background: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo-text {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+        letter-spacing: 1px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #60a5fa;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-links a:hover {
+        color: #60a5fa;
+      }
+
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .mobile-menu span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 3px 0;
+        transition: 0.3s;
+      }
+
+      /* Mobile dropdown menu */
+      .mobile-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        display: none;
+        flex-direction: column;
+        z-index: 1000;
+      }
+
+      .mobile-dropdown.active {
+        display: flex;
+      }
+
+      .mobile-dropdown a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .mobile-dropdown a:hover {
+        background: linear-gradient(135deg, #7caeff 0%, #3157bf 100%);
+        color: #ffffff;
+      }
+
+      .mobile-dropdown a:last-child {
+        border-bottom: none;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          #1e3a8a 0%,
+          #3b82f6 50%,
+          #60a5fa 100%
+        );
+        color: white;
+        padding: 140px 0 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><path d="M0,100 C150,200 350,0 500,100 C650,200 850,0 1000,100 L1000,200 L0,200 Z" fill="rgba(255,255,255,0.1)"/></svg>')
+          no-repeat center bottom;
+        background-size: cover;
+      }
+
+      .hero-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-icon {
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        font-size: 2rem;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        font-weight: 800;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 18px 45px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        color: white;
+        box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(245, 158, 11, 0.4);
+      }
+
+      .btn-outline {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+      }
+
+      /* Container */
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #1e3a8a;
+        position: relative;
+        font-weight: 700;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #64748b;
+        margin-bottom: 4rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        border-radius: 2px;
+      }
+
+      /* Feature Cards */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 4rem;
+      }
+
+      .feature-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .feature-icon {
+        width: 65px;
+        height: 65px;
+        margin: 0 auto 1.5rem;
+        border-radius: 15px;
+        background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+      }
+
+      .feature-card h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        color: #1e3a8a;
+        font-weight: 600;
+      }
+
+      .feature-card p {
+        color: #64748b;
+        line-height: 1.8;
+        font-size: 1.05rem;
+      }
+
+      /* Services List */
+      .services-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .service-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+      }
+
+      .service-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .check-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+
+      /* Stats Section */
+      .stats {
+        background: white;
+        padding: 80px 0;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .stat-number {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: #1e3a8a;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        color: #64748b;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      /* Countries Grid */
+      .countries-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .country-item {
+        text-align: center;
+        padding: 2rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+      }
+
+      .country-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .partners-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-top: 3rem;
+        align-items: center;
+        justify-items: center;
+      }
+
+      .partner-logo {
+        width: 100%;
+        max-width: 300px;
+        height: 150px;
+        background: white;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+      }
+
+      .partner-logo:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .partner-logo img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .partner-placeholder {
+        font-size: 3rem;
+        color: #cbd5e1;
+      }
+
+      /* Special Cards */
+      .highlight-card {
+        background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+        color: white;
+        padding: 3rem;
+        border-radius: 20px;
+        text-align: center;
+        margin-top: 3rem;
+      }
+
+      .highlight-card h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .highlight-card p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        line-height: 1.8;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        color: white;
+        text-align: center;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu {
+          display: flex;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .services-list {
+          grid-template-columns: 1fr;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav>
+        <div class="logo-container">
+          <div class="logo-image">
+            <img
+              style="width: 40px; height: 25px"
+              src="/logo.png"
+              alt="Company Logo"
+            />
+          </div>
+          <a href="index.html" class="logo-text">INTRANOVA</a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobileMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="mobile-dropdown" id="mobileDropdown">
+          <a href="index.html">Home</a>
+          <a href="index.html#services">Services</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-icon">🚚</div>
+        <h1>ITT Logistics Services</h1>
+        <p>
+          ITT provides comprehensive logistics solutions with strong global
+          presence and expertise in import-export operations, helping clients
+          maximize benefits on international shipments.
+        </p>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" style="background: white">
+      <div class="container">
+        <h2 class="section-title">Why Choose Our Logistics Services?</h2>
+        <p class="section-subtitle">
+          Advanced technology, global reach, and unmatched reliability make us
+          your ideal logistics partner.
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🌐</div>
+            <h3>Global Presence</h3>
+            <p>
+              Strong foothold in USA, UK, Gulf, Red Sea Ports, and BRICS
+              countries.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h3>Complete Solutions</h3>
+            <p>
+              From customs clearance to door-to-door delivery, we handle it all.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⏰</div>
+            <h3>Import & Export Expertise</h3>
+            <p>
+              Comprehensive consulting for all shipments arriving or departing
+              from India.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Certification Support</h3>
+            <p>
+              Complete assistance with all import-export certifications and
+              schemes.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Government Schemes</h3>
+            <p>
+              Help clients avail maximum benefits under various government
+              schemes.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🚛</div>
+            <h3>Multi-modal Operations</h3>
+            <p>NVOCC and MTO services for comprehensive logistics solutions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Services Section -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="section-title">Services Offered by ITT</h2>
+        <p class="section-subtitle">
+          Comprehensive logistics and trade services designed to streamline your
+          international operations.
+        </p>
+
+        <div class="services-list">
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>Custom Clearance (CC)</span>
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>Freight Forwarding (FF)</span>
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>Shipping</span>
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>Warehousing</span>
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>Packaging</span>
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>Over Dimension Cargo (ODC)</span>
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>Transportation</span>
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>CONSOL Agent</span>
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>Non Vessel Operating Common Carrier (NVOCC)</span>
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span
+              >Multimodal Transport Operator (MTO) – Door to Door Shipment
+              Delivery</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="section" style="background: white">
+      <div class="container">
+        <h2 class="section-title">Certificates & Schemes</h2>
+        <p class="section-subtitle">
+          Complete assistance with all import-export certifications and
+          government schemes.
+        </p>
+
+        <div class="services-list">
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>Certificate for Importer and Exporter</span>
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>Issuance of Import Export Code (I.E.C)</span>
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>Duty Free Import Authorisation Scheme (DFIA)</span>
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span
+              >Other certificates for importer and exporter (BCCI, APEDA,
+              Certificate of Origin, Factory Stuffing Permission, Self Sealing,
+              Phytosanitary Certificate, etc.)</span
+            >
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>Service Export From India Scheme (SEIS)</span>
+          </div>
+
+          <div class="service-item">
+            <div class="check-icon">✓</div>
+            <span>Merchandise Export from India Scheme (MEIS)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Benefits for Importers and Exporters</h2>
+        <p class="section-subtitle">
+          Maximize your benefits through various government schemes and
+          programs.
+        </p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Drawback (DBK)</h3>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🏭</div>
+            <h3>100% Export Oriented Unit (EOU) Shipment</h3>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⚙️</div>
+            <h3>Export Promotion Capital Goods (EPCG)</h3>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h3>Any other scheme notified by Central and State Government</h3>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📤</div>
+            <h3>Pre-shipment activity</h3>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📥</div>
+            <h3>Post-shipment activity</h3>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🚚</div>
+            <h3>Logistics (1PL, 3PL)</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Presence Section -->
+    <section class="section" style="background: white">
+      <div class="container">
+        <h2 class="section-title">ITT's Global Foothold</h2>
+        <p class="section-subtitle">
+          Strong presence in key international markets for seamless global
+          operations.
+        </p>
+
+        <div class="countries-grid">
+          <div class="country-item">
+            <h3>U.S.A</h3>
+          </div>
+
+          <div class="country-item">
+            <h3>U.K</h3>
+          </div>
+
+          <div class="country-item">
+            <h3>Gulf</h3>
+          </div>
+
+          <div class="country-item">
+            <h3>Red Sea Ports</h3>
+          </div>
+
+          <div class="country-item">
+            <h3>BRICS Countries</h3>
+            <p style="font-size: 0.9rem; color: #64748b; margin-top: 0.5rem">
+              Brazil, Russia, India, China, South Africa
+            </p>
+          </div>
+        </div>
+
+        <div class="highlight-card">
+          <h3>Additional Consulting Services</h3>
+          <p>
+            ITT also provides valuable consulting for all import & export
+            shipments (arriving or departing from India) and helps clients avail
+            maximum benefit on international shipments.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: white">
+      <div class="container">
+        <h2 class="section-title">Our Partners</h2>
+        <p class="section-subtitle">
+          Trusted partnerships that enable us to deliver excellence in logistics
+          services worldwide.
+        </p>
+
+        <div class="partners-grid">
+          <div class="partner-logo">
+            <div class="partner-placeholder"><img src="phoenixnew.png" alt=""></div>
+            <!-- Replace with: <img src="path/to/partner-logo-1.png" alt="Partner Company 1"> -->
+          </div>
+
+          <div class="partner-logo">
+            <div class="partner-placeholder"><img src="kesaree.jpg" alt=""></div>
+            <!-- Replace with: <img src="path/to/partner-logo-2.png" alt="Partner Company 2"> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="container">
+        <h2 class="section-title">Proven Performance</h2>
+        <p class="section-subtitle">
+          Our track record speaks for itself. Delivering excellence across all
+          metrics.
+        </p>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">99.9%</div>
+            <div class="stat-label">On-time Delivery</div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Countries Served</div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Customer Support</div>
+          </div>
+
+          <div class="stat-item">
+            <div class="stat-number">1M+</div>
+            <div class="stat-label">Shipments Handled</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+      <div class="container">
+        <h2 style="color: white; font-size: 3rem; margin-bottom: 1.5rem">
+          Ready to Optimize Your Logistics?
+        </h2>
+        <p style="font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.9">
+          Contact us today for a customized logistics solution that meets your
+          business needs.
+        </p>
+        <div class="hero-buttons">
+          <a href="index.html#contact" class="btn btn-primary">Request Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Get mobile menu elements
+      const mobileMenu = document.getElementById("mobileMenu");
+      const mobileDropdown = document.getElementById("mobileDropdown");
+
+      // Toggle mobile menu
+      if (mobileMenu && mobileDropdown) {
+        mobileMenu.addEventListener("click", function () {
+          mobileMenu.classList.toggle("active");
+          mobileDropdown.classList.toggle("active");
+        });
+
+        // Close dropdown when clicking on a link
+        const mobileLinks = mobileDropdown.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.remove("active");
+            mobileDropdown.classList.remove("active");
+          });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+          if (
+            !mobileMenu.contains(event.target) &&
+            !mobileDropdown.contains(event.target)
+          ) {
+            mobileMenu.classList.remove("active");
+            mobileDropdown.classList.remove("active");
+          }
+        });
+      }
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Header scroll effect
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 100) {
+          header.style.background = "rgba(30, 58, 138, 0.98)";
+        } else {
+          header.style.background = "rgba(30, 58, 138, 0.95)";
+        }
+      });
+
+      // Animate statistics counters
+      const observerOptions = {
+        threshold: 0.5,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const stat = entry.target;
+            const finalValue = stat.textContent;
+            const numericValue = parseInt(finalValue);
+            if (!isNaN(numericValue)) {
+              animateCounter(stat, numericValue, finalValue);
+            }
+            observer.unobserve(stat);
+          }
+        });
+      }, observerOptions);
+
+      // Observe stat numbers when page loads
+      window.addEventListener("load", function () {
+        const statNumbers = document.querySelectorAll(".stat-number");
+        statNumbers.forEach((stat) => observer.observe(stat));
+      });
+
+      function animateCounter(element, target, originalText) {
+        const isPercentage = originalText.includes("%");
+        const suffix = isPercentage
+          ? "%"
+          : originalText.includes("+")
+          ? "+"
+          : "";
+        const duration = 2000;
+        const steps = 60;
+        const stepValue = target / steps;
+        const stepDuration = duration / steps;
+
+        let current = 0;
+        const timer = setInterval(() => {
+          current += stepValue;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          element.textContent = Math.floor(current) + suffix;
+        }, stepDuration);
+      }
+    </script>
+  </body>
+</html>
